@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clash
+  template:
+    metadata:
+      labels:
+        app: clash
+    spec:
+      containers:
+        - name: clash
+          image: clash:9.0.7
+          imagePullPolicy: IfNotPresent
